@@ -104,8 +104,8 @@ header h2 a {
   border: none;
   outline: none;
 
-  color: var(--white);
-  background-color: var(--blue);
+  color: var(--black);
+  /* background-color: var(--white); */
 }
 
 .todo {

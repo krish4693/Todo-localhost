@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TodoItem from "./@types/TodoItem";
-import TodoItemProps from "./@types/TodoItem";
-import { useSavedState } from "./hooks/savedState";
+import TodoItem from "../@types/TodoItem";
+import TodoItemProps from "../@types/TodoItem";
+import { useSavedState } from "../hooks/savedState";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useSavedState([], "todos");
