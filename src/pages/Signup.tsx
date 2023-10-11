@@ -1,4 +1,4 @@
-import React,{useRef} from 'react';
+import React, { useRef } from 'react';
 import '../styles/Login.css'
 
 interface LoginProps {
@@ -15,6 +15,12 @@ const Signup: React.FC<LoginProps> = () => {
         const nameValue = name.current?.value;
         const emailValue = email.current?.value;
         const passwordValue = password.current?.value;
+        if (nameValue && emailValue && passwordValue) {
+            console.log(nameValue)
+            console.log(emailValue)
+            console.log(passwordValue)
+        }
+
 
         // Do something with the values
     };
