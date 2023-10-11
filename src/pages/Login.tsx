@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles/Login.css'
+import '../styles/Login.css';
+
 
 interface LoginProps {
     // Define your props here if needed
