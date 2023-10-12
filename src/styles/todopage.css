@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: center; 
   background-color: var(--white);
   /* color: var(--white); */
   /* background-color: var(--black); */
@@ -33,6 +33,12 @@ body {
 
 main {
   margin-top: 4rem;
+  align-items: center;
+  max-width: 40% ;
+  margin: auto;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -83,7 +89,7 @@ header h2 a {
   /* outline: none; */
   border-radius: 0.5rem;
   padding: 0.5rem;
-
+  min-width: 200px;
   height: 1.5rem;
 }
 
@@ -113,6 +119,8 @@ header h2 a {
   flex-flow: row nowrap;
   align-items: center;
   user-select: none;
+  min-width: 300px;
+
 }
 
 .todo span {
@@ -162,4 +170,44 @@ header h2 a {
 }
 .todo--complete p {
   color: #888; /* Change the text color for completed items to gray */
+}
+
+.navBar ul{
+  list-style-type: none;
+  color: #222831;
+}
+
+.navBar{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100vw 
+}
+
+.navBar li{
+  display: inline-block;
+}
+
+.navBar button{
+  display: inline-block;
+    padding: 12px 24px;
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif; /* Choose a suitable font-family */
+    text-transform: uppercase;
+}
+
+.navBar button:hover{
+  background-color: #0056b3; 
+}
+
+.navBar button:active{
+  transform: scale(0.95);
 }

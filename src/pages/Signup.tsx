@@ -1,57 +1,105 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Login.css'
 import Login from './Login';
-
+import ToDoPage from './todopage'
+import { Link } from 'react-router-dom';
 interface LoginProps {
-    // Define your props here if needed
+  // Define your props here if needed
 }
 
-const Signup: React.FC<LoginProps> = () => {
-    const name = useRef<HTMLInputElement>(null);
-    const email = useRef<HTMLInputElement>(null);
-    const password = useRef<HTMLInputElement>(null);
-    const [showHome,setShowHome]=useState(false)
-    const localSignUp=localStorage.getItem("signUp")
 
-    useEffect(()=>{
+const SignupPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    email: '',
+  });
 
-    })
+  const [registrationMessage, setRegistrationMessage] = useState('');
 
-    const handleSignUp = () => {
-        // Access values using refs
-        const nameValue = name.current?.value;
-        const emailValue = email.current?.value;
-        const passwordValue = password.current?.value;
-        if (nameValue && emailValue && passwordValue) {
-            localStorage.setItem("name",nameValue)
-            localStorage.setItem("email",emailValue)
-            localStorage.setItem("password",passwordValue)
-            localStorage.setItem("signUp",emailValue)
-            console.log(nameValue)
-            console.log(emailValue)
-            console.log(passwordValue)
-            alert("Account created successfully")
-        }
-        else{
-            alert("Give a valid info idiot")
-        }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
-        // Do something with the values
-    };
+  const handleSignUp = (e: React.FormEvent) => {
+    e.preventDefault();
 
-    return (
-        <>
-            <div className='loginComponent'>
-                <label htmlFor="username">Username</label>
-                <input type="text" name='username' placeholder="Enter your name" ref={name} />
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" placeholder="Enter your email" ref={email} />
-                <label htmlFor="password">Password</label>
-                <input type="password" name='password' placeholder="Enter your password" ref={password} />
-                <button onClick={handleSignUp}>SignUp</button>
-            </div>
-        </>
-    );
+    // Retrieve existing user data from local storage
+    const storedUsersJson = localStorage.getItem('users')
+    const existingUsers = storedUsersJson ? JSON.parse(storedUsersJson) : []
+
+    // Check if the provided username already exists
+    if ((existingUsers as any[]).some((user) => user.username === formData.username)) {
+      setRegistrationMessage('Username already exists. Please choose a different one.');
+      return;
+    }
+
+    // Add the new user data to the existing users
+    existingUsers.push(formData);
+
+    // Store the updated array of user data in local storage
+    localStorage.setItem('users', JSON.stringify(existingUsers));
+
+    setFormData({
+      username: '',
+      password: '',
+      email: '',
+    });
+
+    setRegistrationMessage('Registration successful!');
+  };
+
+  return (
+    <div>
+      <nav className="navBar">
+        <ul>
+          <li>
+            <Link to="/">
+            <button>Login</button>
+            </Link>
+
+          </li>
+        </ul>
+      </nav>
+      <form onSubmit={handleSignUp}>
+        <div className='signupComponent'>
+          <label htmlFor='username'>Username:</label>
+          <input
+            type='text'
+            id='username'
+            name='username'
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor='password'>Password:</label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor='email'>Email:</label>
+          <input
+            type='email'
+            id='email'
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <button type='submit'>Sign Up</button>
+          <div>{registrationMessage}</div>
+        </div>
+      </form>
+    </div>
+  );
 };
 
-export default Signup;
+export default SignupPage;

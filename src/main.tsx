@@ -4,10 +4,21 @@ import App from './pages/todopage.tsx'
 import './styles/todopage.css'
 import Login from './pages/Login.tsx'
 import Signup from './pages/Signup.tsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Signup/>
+    {/* <App/> */}
+    {/* <Signup/>
+     */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />}></Route>
+        <Route path='/newuser' element={<Signup />}>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+
   </React.StrictMode>,
 )

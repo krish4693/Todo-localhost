@@ -3,14 +3,16 @@ import TodoItem from "../@types/TodoItem";
 import TodoItemProps from "../@types/TodoItem";
 import { useSavedState } from "../hooks/savedState";
 
+const loggedUser = localStorage.getItem("loggeduser");
+const defaultUser = "DefaultUser"; // Provide a default user if needed
 const App: React.FC = () => {
   const [todos, setTodos] = useSavedState([], "todos");
   const [newTodo, setNewTodo] = useState<TodoItemProps>({
+    user: loggedUser !== null ? loggedUser : defaultUser,
     id: todos.length > 0 ? todos.length : -1,
     value: "",
     status: false,
   });
-
   // Filter for **only** the complete items, and fetch the length.
   const itemsComplete = todos.filter((t: TodoItem) => t.status).length;
 
@@ -20,7 +22,7 @@ const App: React.FC = () => {
     event.preventDefault();
 
     // Track the input state on input change
-    setNewTodo({ id: newTodo.id, value: event.target.value, status: false });
+    setNewTodo({  user:loggedUser !== null ? loggedUser : defaultUser,id: newTodo.id, value: event.target.value, status: false });
   };
 
   // On form submission, add the todo and reset the form valie.
@@ -31,6 +33,7 @@ const App: React.FC = () => {
     // Set the new todos list, then reset the new todo form.
     setTodos([...todos, newTodo]);
     setNewTodo({
+      user:loggedUser,
       id: todos.length,
       value: "",
       status: false,
@@ -52,11 +55,27 @@ const App: React.FC = () => {
     setTodos(items);
   };
 
+  const logout=()=>{
+    localStorage.removeItem("loggeduser")
+    window.location.reload()
+  }
+  
   return (
+    <div>
+    <nav className="navBar">
+        <ul>
+          <li>
+            <button onClick={logout}>Logout</button>
+
+          </li>
+        </ul>
+      </nav>
     <main>
 
       {/* Page header container */}
+      
       <header>
+        <div></div>
         <h1>TO DO</h1>
       </header>
       {/* New Todo Container */}
@@ -79,8 +98,10 @@ const App: React.FC = () => {
       {/* TODOS List */}
       <ul className="todos">
         {/* Map each TODO and render the list item. */}
-        {todos.map((todo: TodoItem) => {
+        
+        {renderList && todos.filter((todo:TodoItem)=>todo.user===loggedUser).map((todo: TodoItem) => {
           return (
+            
             <li
               className={todo.status ? "todo todo--complete" : "todo"}
               key={todo.id}
@@ -95,10 +116,13 @@ const App: React.FC = () => {
           );
         })}
       </ul>
+      {/* {console.log( todos.filter((todo:TodoItem) => todo.user === loggedUser))} */}
       <span>
         {todos.length} items left
       </span>
     </main>
+    </div>
+
   );
 };
 
