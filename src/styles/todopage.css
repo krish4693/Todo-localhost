@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center; 
+  justify-content: center;
   background-color: var(--white);
   /* color: var(--white); */
   /* background-color: var(--black); */
@@ -33,8 +33,7 @@ body {
 
 main {
   margin-top: 4rem;
-  align-items: center;
-  max-width: 40% ;
+  max-width: 40%;
   margin: auto;
   min-width: 180px;
   display: flex;
@@ -77,25 +76,31 @@ header h2 a {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  justify-content: space-between;
+  min-width: 382px;
 }
 
 .new-todo label {
   font-weight: 500;
   margin-bottom: 0.5rem;
+  
 }
 
 .new-todo input {
-  /* border: none; */
+  border: none;
   /* outline: none; */
-  border-radius: 0.5rem;
+  border-radius: 5px;
   padding: 0.5rem;
   min-width: 200px;
   height: 1.5rem;
+  
 }
 
 .new-todo__h input {
   flex: 0 1 calc(80% - 0.5rem);
   margin-right: 0.5rem;
+  flex-grow: 2;
+  
 }
 
 .new-todo button {
@@ -119,9 +124,13 @@ header h2 a {
   flex-flow: row nowrap;
   align-items: center;
   user-select: none;
-  min-width: 300px;
-
+  /* min-width: 300px; */
+  justify-content: space-between;
+  min-width: 377px;
+  background-color: white;
 }
+
+
 
 .todo span {
   cursor: pointer;
@@ -137,6 +146,7 @@ header h2 a {
   cursor: pointer;
   position: relative;
   margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .todo p::before {
@@ -153,7 +163,7 @@ header h2 a {
   transform: scaleX(0);
   transform-origin: left;
   transition: all 0.2s ease-in-out;
-  
+
 }
 
 .todo p:hover::before {
@@ -164,50 +174,59 @@ header h2 a {
 .todo--complete p::before {
   transform: scaleX(1);
   /* background-color: #fafcfd; */
-  
+
 
 
 }
+
 .todo--complete p {
-  color: #888; /* Change the text color for completed items to gray */
+  color: #888;
+  /* Change the text color for completed items to gray */
 }
 
-.navBar ul{
+.navBar ul {
   list-style-type: none;
   color: #222831;
 }
 
-.navBar{
+.navBar {
   display: flex;
   flex-direction: row-reverse;
-  width: 100vw 
+  width: 100vw
 }
 
-.navBar li{
+.navBar li {
   display: inline-block;
 }
 
-.navBar button{
+.navBar button {
   display: inline-block;
-    padding: 12px 24px;
-    background-color: #007BFF; /* Button background color */
-    color: #fff; /* Button text color */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    margin-right: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif; /* Choose a suitable font-family */
-    text-transform: uppercase;
+  padding: 12px 24px;
+  background-color: #007BFF;
+  /* Button background color */
+  color: #fff;
+  /* Button text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  /* Choose a suitable font-family */
+  text-transform: uppercase;
 }
 
-.navBar button:hover{
-  background-color: #0056b3; 
+.navBar button:hover {
+  background-color: #0056b3;
 }
 
-.navBar button:active{
+.navBar button:active {
   transform: scale(0.95);
+}
+
+.loggedUser{
+  margin-right: 20px;
 }

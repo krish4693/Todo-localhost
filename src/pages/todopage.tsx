@@ -3,9 +3,10 @@ import TodoItem from "../@types/TodoItem";
 import TodoItemProps from "../@types/TodoItem";
 import { useSavedState } from "../hooks/savedState";
 
-const loggedUser = localStorage.getItem("loggeduser");
 const defaultUser = "DefaultUser"; // Provide a default user if needed
 const App: React.FC = () => {
+  const loggedUser = localStorage.getItem("loggeduser");
+
   const [todos, setTodos] = useSavedState([], "todos");
   const [newTodo, setNewTodo] = useState<TodoItemProps>({
     user: loggedUser !== null ? loggedUser : defaultUser,
@@ -13,6 +14,7 @@ const App: React.FC = () => {
     value: "",
     status: false,
   });
+  
   // Filter for **only** the complete items, and fetch the length.
   const itemsComplete = todos.filter((t: TodoItem) => t.status).length;
 
@@ -22,7 +24,7 @@ const App: React.FC = () => {
     event.preventDefault();
 
     // Track the input state on input change
-    setNewTodo({  user:loggedUser !== null ? loggedUser : defaultUser,id: newTodo.id, value: event.target.value, status: false });
+    setNewTodo({ user: loggedUser !== null ? loggedUser : defaultUser, id: newTodo.id, value: event.target.value, status: false });
   };
 
   // On form submission, add the todo and reset the form valie.
@@ -33,7 +35,7 @@ const App: React.FC = () => {
     // Set the new todos list, then reset the new todo form.
     setTodos([...todos, newTodo]);
     setNewTodo({
-      user:loggedUser,
+      user: loggedUser,
       id: todos.length,
       value: "",
       status: false,
@@ -55,72 +57,74 @@ const App: React.FC = () => {
     setTodos(items);
   };
 
-  const logout=()=>{
+  const logout = () => {
     localStorage.removeItem("loggeduser")
     window.location.reload()
   }
-  
+
   return (
     <div>
-    <nav className="navBar">
+      <nav className="navBar">
         <ul>
+          <li><h3 className="loggedUser">{loggedUser}</h3></li>
           <li>
             <button onClick={logout}>Logout</button>
 
           </li>
         </ul>
       </nav>
-    <main>
+      <main>
 
-      {/* Page header container */}
-      
-      <header>
-        <div></div>
-        <h1>TO DO</h1>
-      </header>
-      {/* New Todo Container */}
-      <div className="new-todo">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Enter a new task</label>
-          {/* Added these items into a div in order to align them horizontally */}
-          <div className="new-todo__h">
-            <input
-              type="text"
-              onChange={handleChange}
-              value={newTodo.value}
-              required
-            />
-            {/* Clicking the enter key will also submit the form, but it is good practice to have an actual submit button. */}
-            <button type="submit">+</button>
-          </div>
-        </form>
-      </div>
-      {/* TODOS List */}
-      <ul className="todos">
-        {/* Map each TODO and render the list item. */}
-        
-        {renderList && todos.filter((todo:TodoItem)=>todo.user===loggedUser).map((todo: TodoItem) => {
-          return (
-            
-            <li
-              className={todo.status ? "todo todo--complete" : "todo"}
-              key={todo.id}
-            >
-              {/* Attached to handler to remove item. */}
-              <span onClick={(e) => handleRemoveClick(e, todo.id)}>
-                &times;
-              </span>
-              {/* Attached to handler to toggle item status. */}
-              <p onClick={(e) => handleStatusClick(e, todo.id)}>{todo.value}</p>
-            </li>
-          );
-        })}
-      </ul>
-      {/* {console.log( todos.filter((todo:TodoItem) => todo.user === loggedUser))} */}
-      <span>
-        {todos.length} items left
-      </span>
-    </main>
+        {/* Page header container */}
+
+        <header>
+          <div></div>
+          <h1>TO DO</h1>
+        </header>
+        {/* New Todo Container */}
+        <div className="new-todo">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Enter a new task</label>
+            {/* Added these items into a div in order to align them horizontally */}
+            <div className="new-todo__h">
+              <input
+                type="text"
+                onChange={handleChange}
+                value={newTodo.value}
+                required
+              />
+              {/* Clicking the enter key will also submit the form, but it is good practice to have an actual submit button. */}
+              <button type="submit">+</button>
+            </div>
+          </form>
+        </div>
+        {/* TODOS List */}
+        <ul className="todos">
+          {/* Map each TODO and render the list item. */}
+
+          {todos.filter((todo: TodoItem) => todo.user === loggedUser).map((todo: TodoItem) => {
+            return (
+
+              <li
+                className={todo.status ? "todo todo--complete" : "todo"}
+                key={todo.id}
+              >
+
+                {/* Attached to handler to toggle item status. */}
+                <p onClick={(e) => handleStatusClick(e, todo.id)}>{todo.value}</p>
+                {/* Attached to handler to remove item. */}
+                <span onClick={(e) => handleRemoveClick(e, todo.id)}>
+                  &times;
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+        {/* {console.log( todos.filter((todo:TodoItem) => todo.user === loggedUser))} */}
+        <span>
+          {todos.length} items left
+        </span>
+      </main>
     </div>
 
   );
