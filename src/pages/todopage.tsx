@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoItem from "../@types/TodoItem";
 import TodoItemProps from "../@types/TodoItem";
 import { useSavedState } from "../hooks/savedState";
+import LoginPage from "./Login";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const defaultUser = "DefaultUser"; // Provide a default user if needed
 const App: React.FC = () => {
   const loggedUser = localStorage.getItem("loggeduser");
+  console.log(loggedUser)
+  const navigate = useNavigate(); // Initialize the navigate function
 
+  useEffect(()=>{
+    if(loggedUser===null){
+      navigate('/')
+    }
+  },[loggedUser])
   const [todos, setTodos] = useSavedState([], "todos");
   const [newTodo, setNewTodo] = useState<TodoItemProps>({
     user: loggedUser !== null ? loggedUser : defaultUser,
@@ -14,7 +23,7 @@ const App: React.FC = () => {
     value: "",
     status: false,
   });
-  
+
   // Filter for **only** the complete items, and fetch the length.
   const itemsComplete = todos.filter((t: TodoItem) => t.status).length;
 

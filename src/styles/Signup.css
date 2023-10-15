@@ -1,0 +1,15 @@
+.signupComponent{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    flex-grow: 2;
+}
+
+.pageWrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}

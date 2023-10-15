@@ -4,8 +4,7 @@ import App from './pages/todopage.tsx'
 import './styles/todopage.css'
 import Login from './pages/Login.tsx'
 import Signup from './pages/Signup.tsx'
-import { BrowserRouter, Route, Router, Routes,redirect } from 'react-router-dom'
-import { redirect } from 'react-router'
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -13,6 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     {/* <App/> */}
     {/* <Signup/>
      */}
+     
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />}/>

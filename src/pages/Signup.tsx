@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../styles/Login.css'
+import '../styles/Signup.css'
 import Login from './Login';
 import ToDoPage from './todopage'
 import { Link } from 'react-router-dom';
@@ -51,7 +51,7 @@ const SignupPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className='pageWrapper'>
       <nav className="navBar">
         <ul>
           <li>
@@ -62,8 +62,8 @@ const SignupPage: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <form onSubmit={handleSignUp}>
-        <div className='signupComponent'>
+      <form onSubmit={handleSignUp} className='signupComponent'>
+        
           <label htmlFor='username'>Username:</label>
           <input
             type='text'
@@ -96,7 +96,7 @@ const SignupPage: React.FC = () => {
 
           <button type='submit'>Sign Up</button>
           <div>{registrationMessage}</div>
-        </div>
+        
       </form>
     </div>
   );
