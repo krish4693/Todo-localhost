@@ -58,7 +58,7 @@ const LoginPage: React.FC = () => {
     isLogin ? (
       <App />
     ) : (
-      <div>
+      <div className='loginWrapperMain'>
         <nav className="navBar">
         <ul>
           <li>
@@ -69,8 +69,9 @@ const LoginPage: React.FC = () => {
           </li>
         </ul>
       </nav>
-    <main></main>
-        <form onSubmit={handleLogin}>
+    {/* <main ></main> */}
+    <div className='loginWrapper'>
+      <form onSubmit={handleLogin} className='loginWrapper'>
           <div className='loginComponent'>
             <label htmlFor='username'>Username:</label>
             <input
@@ -96,6 +97,8 @@ const LoginPage: React.FC = () => {
             <div>{loginMessage}</div>
           </div>
         </form>
+    </div>
+        
       </div>
     )
   );

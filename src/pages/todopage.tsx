@@ -7,6 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const defaultUser = "DefaultUser"; // Provide a default user if needed
 const App: React.FC = () => {
+  const [count,setCount]=useState(0)
   const loggedUser = localStorage.getItem("loggeduser");
   console.log(loggedUser)
   const navigate = useNavigate(); // Initialize the navigate function
@@ -112,6 +113,7 @@ const App: React.FC = () => {
           {/* Map each TODO and render the list item. */}
 
           {todos.filter((todo: TodoItem) => todo.user === loggedUser).map((todo: TodoItem) => {
+            setCount(count+1)
             return (
 
               <li
@@ -131,7 +133,7 @@ const App: React.FC = () => {
         </ul>
         {/* {console.log( todos.filter((todo:TodoItem) => todo.user === loggedUser))} */}
         <span>
-          {todos.length} items left
+          {count} items left
         </span>
       </main>
     </div>
