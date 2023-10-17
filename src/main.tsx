@@ -5,7 +5,7 @@ import './styles/todopage.css'
 import Login from './pages/Login.tsx'
 import Signup from './pages/Signup.tsx'
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
-
+import './main.css' 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

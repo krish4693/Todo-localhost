@@ -35,7 +35,7 @@ const LoginPage: React.FC = () => {
     if ((existingUsers as any[]).some((user) => user.username === formData.username && user.password === formData.password)) {
       setLoginMessage('Login Successful');
       alert('Login Sucessfull')
-      localStorage.setItem("loggeduser",formData.username)
+      localStorage.setItem("loggeduser", formData.username)
       setIsLogin(true)
 
 
@@ -60,45 +60,47 @@ const LoginPage: React.FC = () => {
     ) : (
       <div className='loginWrapperMain'>
         <nav className="navBar">
-        <ul>
-          <li>
-            <Link to="/newuser">
-            <button>SignUp</button>
-            </Link>
+          <ul>
+            <li>
+              <Link to="/newuser">
+                <button>SignUp</button>
+              </Link>
 
-          </li>
-        </ul>
-      </nav>
-    {/* <main ></main> */}
-    <div className='loginWrapper'>
-      <form onSubmit={handleLogin} className='loginWrapper'>
-          <div className='loginComponent'>
-            <label htmlFor='username'>Username:</label>
-            <input
-              type='text'
-              id='username'
-              name='username'
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
+            </li>
+          </ul>
+        </nav>
+        <form onSubmit={handleLogin} >
 
-            <label htmlFor='password'>Password:</label>
-            <input
-              type='password'
-              id='password'
-              name='password'
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+          <div className='loginWrapper'>
+            <div className='loginComponent'>
+              <h3>Member Login</h3>
 
-            <button type='submit'>Login</button>
-            <div>{loginMessage}</div>
+              <input
+                type='text'
+                id='username'
+                name='username'
+                value={formData.username}
+                onChange={handleChange}
+                placeholder='Username'
+                required
+              />
+
+              <input
+                type='password'
+                id='password'
+                name='password'
+                value={formData.password}
+                onChange={handleChange}
+                placeholder='Password'
+                required
+              />
+
+              <button type='submit'>Login</button>
+              <div>{loginMessage}</div>
+            </div>
           </div>
         </form>
-    </div>
-        
+
       </div>
     )
   );
