@@ -7,7 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const defaultUser = "DefaultUser"; // Provide a default user if needed
 const App: React.FC = () => {
-  const [count,setCount]=useState(0)
+  // const [count,setCount]=useState(0)
   const loggedUser = localStorage.getItem("loggeduser");
   console.log(loggedUser)
   const navigate = useNavigate(); // Initialize the navigate function
@@ -16,6 +16,7 @@ const App: React.FC = () => {
     if(loggedUser===null){
       navigate('/')
     }
+  
   },[loggedUser])
   const [todos, setTodos] = useSavedState([], "todos");
   const [newTodo, setNewTodo] = useState<TodoItemProps>({
@@ -71,9 +72,9 @@ const App: React.FC = () => {
     localStorage.removeItem("loggeduser")
     window.location.reload()
   }
-
+  const count = todos.filter((todo: TodoItem) => todo.user === loggedUser).length;
   return (
-    <div>
+    <div className="todo-main">
       <nav className="navBar">
         <ul>
           <li><h3 className="loggedUser">{loggedUser}</h3></li>
@@ -104,7 +105,7 @@ const App: React.FC = () => {
                 required
               />
               {/* Clicking the enter key will also submit the form, but it is good practice to have an actual submit button. */}
-              <button type="submit">+</button>
+              <button type="submit" className="">+</button>
             </div>
           </form>
         </div>
@@ -113,7 +114,7 @@ const App: React.FC = () => {
           {/* Map each TODO and render the list item. */}
 
           {todos.filter((todo: TodoItem) => todo.user === loggedUser).map((todo: TodoItem) => {
-            setCount(count+1)
+            // setCount(count+1)
             return (
 
               <li
@@ -132,7 +133,7 @@ const App: React.FC = () => {
           })}
         </ul>
         {/* {console.log( todos.filter((todo:TodoItem) => todo.user === loggedUser))} */}
-        <span>
+        <span className="count-msg">
           {count} items left
         </span>
       </main>

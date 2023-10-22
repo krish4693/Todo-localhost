@@ -71,8 +71,8 @@ const LoginPage: React.FC = () => {
 
           <div className='loginWrapper'>
             <div className='login-intro'>
-              <h1>Welcome Back </h1>
-              <h2>We Missed YOU</h2>
+              <h1>Welcome Back 😺 </h1>
+              <h2>We Missed YOU!!!</h2>
             </div>
             <div className='loginComponent'>
               <h2 className='loginHeader'>Member Login</h2>

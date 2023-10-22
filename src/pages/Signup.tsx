@@ -70,8 +70,8 @@ const SignupPage: React.FC = () => {
       <form onSubmit={handleSignUp} >
         <div className='signupWrapper'>
           <div className="signup-intro">
-            <h1>Welcome</h1>
-            <h2>Let's get started</h2>
+            <h1>Welcome 🐼</h1>
+            <h2>Let's get started!!!</h2>
           </div>
           <div className="signupComponent">
             <h2 className='signupHeader'> New Member</h2>

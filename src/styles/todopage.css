@@ -65,6 +65,9 @@ header h2 a {
 .todos {
   padding-left: 0;
   background-color: white;
+  margin-top:2rem;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .new-todo form {
@@ -78,6 +81,7 @@ header h2 a {
   align-items: center;
   justify-content: space-between;
   min-width: 382px;
+  
 }
 
 .new-todo label {
@@ -88,7 +92,6 @@ header h2 a {
 
 .new-todo input {
   border: none;
-  /* outline: none; */
   border-radius: 5px;
   padding: 0.5rem;
   min-width: 200px;
@@ -98,8 +101,8 @@ header h2 a {
 
 .new-todo__h input {
   flex: 0 1 calc(80% - 0.5rem);
-  margin-right: 0.5rem;
-  flex-grow: 2;
+    height: 2.5rem;
+    flex-grow: 2;
   
 }
 
@@ -121,13 +124,15 @@ header h2 a {
 
 .todo {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  user-select: none;
-  /* min-width: 300px; */
-  justify-content: space-between;
-  min-width: 377px;
-  background-color: white;
+    flex-flow: row nowrap;
+    align-items: center;
+    user-select: none;
+    /* min-width: 300px; */
+    justify-content: space-between;
+    min-width: 377px;
+    background-color: white;
+    height: 2.5rem;
+    border-radius: 10px;
 }
 
 
@@ -192,7 +197,8 @@ header h2 a {
 .navBar {
   display: flex;
   flex-direction: row-reverse;
-  width: 100vw
+  width: 100vw;
+  padding-top: 10px;
 }
 
 .navBar li {
@@ -229,4 +235,22 @@ header h2 a {
 
 .loggedUser{
   margin-right: 20px;
+}
+
+.todo-main{
+  height: 100%;
+  background: hsla(312, 77%, 86%, 1);
+
+background: linear-gradient(90deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F7C0EC", endColorstr="#A7BDEA", GradientType=1 );
+}
+
+.count-msg{
+  text-align: center;
+  margin-top: 10px;
 }
