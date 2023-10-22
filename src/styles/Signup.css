@@ -1,15 +1,158 @@
-.signupComponent{
+.signupComponent {
     /* background-color: red; */
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
-    flex-grow: 2;
+    justify-content: space-evenly;
+    border-radius: 0 10px 10px 0;
+
+    width: 30rem;
+    padding: 20px;
+    height: 35rem;
+    padding: 30px;
 }
 
-.pageWrapper{
+.signupComponent input {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+    /* display: inline; */
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.signupWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    /* padding: 0 0 0 50px; */
+}
+
+.signupWrapperMain {
     height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
 
+/* .loginWrapperMain */
+
+.signup-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lavender;
+    height: 35rem;
+    width: 30vh;
+    border-radius: 10px 0 0 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Pacifico', cursive;
+}
+
+.signup-intro h2 {
+    margin-top: 10px;
+    font-family: 'Amatic SC', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Pixelify Sans', sans-serif;
+
+}
+
+.signupHeader {
+    text-align: center;
+
+}
+
+.input-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.input-wrapper{
+    position: relative;
+    display: inline-block;
+}
+
+.signup-btn{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    width: 70%;
+    height: 50px;
+    border-radius: 25px;
+    background: #57b846;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+    outline: none!important;
+    border: none;
+}
+
+@media all and (max-width:800px){
+    .signup-intro{
+        display: none;
+    }
+    .signupComponent{
+        border-radius: 10px;
+    }
+}
+@media all and (max-width: 500px){
+    .signupComponent{
+        padding: 30px;
+        max-width: 95vw;
+
+    }
+    .signup-btn{
+        /* width: 70vw; */
+    }
+    .signupComponent input{
+        /* width: 70vw; */
+    }
+    .signup-intro{
+        display: none;
+    }
+}
+
+.bottom-login-arrow{
+    position: relative;
+    top: 2px;
+}
+
+.login-link:hover{
+    color:green
+}
+
+.login-link{
+    text-decoration: none;
+    color: black;
 }

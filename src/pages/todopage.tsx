@@ -45,9 +45,9 @@ const App: React.FC = () => {
     // Set the new todos list, then reset the new todo form.
     setTodos([...todos, newTodo]);
     setNewTodo({
-      user: loggedUser,
+    user: loggedUser !== null ? loggedUser : defaultUser,
       id: todos.length,
-      value: "",
+      value: "",    
       status: false,
     });
   };
