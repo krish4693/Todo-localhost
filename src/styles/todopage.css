@@ -269,5 +269,11 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F7C0EC", en
     flex-direction: row;
     justify-content: space-between;
   }
+  .loggedUser{
+    margin-left: 10px;
+  }
+  .navBar{
+    margin-bottom: 30px;
+  }
  
 }

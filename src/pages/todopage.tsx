@@ -4,6 +4,7 @@ import TodoItemProps from "../@types/TodoItem";
 import { useSavedState } from "../hooks/savedState";
 import LoginPage from "./Login";
 import { Navigate, useNavigate } from "react-router-dom";
+import {AiTwotoneDelete} from 'react-icons/ai'
 
 const defaultUser = "DefaultUser"; // Provide a default user if needed
 const App: React.FC = () => {
@@ -124,7 +125,7 @@ const App: React.FC = () => {
                 <p onClick={(e) => handleStatusClick(e, todo.id)}>{todo.value}</p>
                 {/* Attached to handler to remove item. */}
                 <span onClick={(e) => handleRemoveClick(e, todo.id)}>
-                  &times;
+                  <AiTwotoneDelete/>
                 </span>
               </li>
             );
