@@ -84,7 +84,7 @@ const App: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <main>
+      <div className="todo-container">
 
         {/* Page header container */}
 
@@ -105,7 +105,7 @@ const App: React.FC = () => {
                 required
               />
               {/* Clicking the enter key will also submit the form, but it is good practice to have an actual submit button. */}
-              <button type="submit" className="">+</button>
+              <button type="submit" className="x">+</button>
             </div>
           </form>
         </div>
@@ -136,7 +136,7 @@ const App: React.FC = () => {
         <span className="count-msg">
           {count} items left
         </span>
-      </main>
+      </div>
     </div>
 
   );

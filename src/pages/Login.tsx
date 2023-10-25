@@ -7,12 +7,13 @@ import { RiLockPasswordFill } from 'react-icons/ri'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HiArrowRight } from 'react-icons/hi'
+import { useNavigate } from 'react-router-dom';
 
 
 interface LoginProps {
   // Define your props here if needed
 }
-
+// const navigate=useNavigate()
 
 const LoginPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -44,6 +45,7 @@ const LoginPage: React.FC = () => {
       });
       localStorage.setItem("loggeduser", formData.username)
       setIsLogin(true)
+      // navigate('/todos')
 
 
       // return;
