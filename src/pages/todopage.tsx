@@ -76,13 +76,11 @@ const App: React.FC = () => {
   return (
     <div className="todo-main">
       <nav className="navBar">
-        <ul>
-          <li><h3 className="loggedUser">{loggedUser}</h3></li>
-          <li>
+        
+          <h3 className="loggedUser">{loggedUser}</h3>
+          
             <button onClick={logout}>Logout</button>
-
-          </li>
-        </ul>
+        
       </nav>
       <div className="todo-container">
 
