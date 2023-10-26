@@ -10,7 +10,7 @@ const defaultUser = "DefaultUser"; // Provide a default user if needed
 const App: React.FC = () => {
   // const [count,setCount]=useState(0)
   const loggedUser = localStorage.getItem("loggeduser");
-  console.log(loggedUser)
+  // console.log(loggedUser)
   const navigate = useNavigate(); // Initialize the navigate function
 
   useEffect(()=>{
@@ -42,6 +42,7 @@ const App: React.FC = () => {
   // On form submission, add the todo and reset the form valie.
   const handleSubmit = (event: React.SyntheticEvent): void => {
     // Stop the defaults from the browser
+
     event.preventDefault();
 
     // Set the new todos list, then reset the new todo form.
@@ -52,15 +53,19 @@ const App: React.FC = () => {
       value: "",    
       status: false,
     });
+    // console.log(todos)
+
   };
 
   // When the "x" is clicked, remove the item from the todos.
   const handleRemoveClick = (_event: React.MouseEvent, id: number) => {
+    console.log("Clicked remove for item with ID:", id);
     setTodos(todos.filter((t: TodoItem) => t.id !== id));
   };
 
   // Whenever a list item is clicked, mark the status complete/incomplete (true/false)
   const handleStatusClick = (_event: React.MouseEvent, id: number) => {
+    console.log("Clicked status for item with ID:", id);
     let items = [...todos];
     let itemIndex = todos.findIndex((t: TodoItem) => t.id === id);
     let item: TodoItem = todos[itemIndex];
@@ -113,7 +118,6 @@ const App: React.FC = () => {
           {/* Map each TODO and render the list item. */}
 
           {todos.filter((todo: TodoItem) => todo.user === loggedUser).map((todo: TodoItem) => {
-            // setCount(count+1)
             return (
 
               <li
