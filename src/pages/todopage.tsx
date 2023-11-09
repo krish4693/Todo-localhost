@@ -5,6 +5,7 @@ import { useSavedState } from "../hooks/savedState";
 import LoginPage from "./Login";
 import { Navigate, useNavigate } from "react-router-dom";
 import {AiTwotoneDelete} from 'react-icons/ai'
+import { v4 as uuidv4 } from 'uuid';
 
 const defaultUser = "DefaultUser"; // Provide a default user if needed
 const App: React.FC = () => {
@@ -22,7 +23,7 @@ const App: React.FC = () => {
   const [todos, setTodos] = useSavedState([], "todos");
   const [newTodo, setNewTodo] = useState<TodoItemProps>({
     user: loggedUser !== null ? loggedUser : defaultUser,
-    id: todos.length > 0 ? todos.length : -1,
+    id: uuidv4(), // Generate a UUID for the 'id' property
     value: "",
     status: false,
   });
@@ -41,21 +42,18 @@ const App: React.FC = () => {
 
   // On form submission, add the todo and reset the form valie.
   const handleSubmit = (event: React.SyntheticEvent): void => {
-    // Stop the defaults from the browser
-
     event.preventDefault();
-
-    // Set the new todos list, then reset the new todo form.
+  
+    // Set the new todos list with the generated UUID, then reset the new todo form.
     setTodos([...todos, newTodo]);
     setNewTodo({
-    user: loggedUser !== null ? loggedUser : defaultUser,
-      id: todos.length,
-      value: "",    
+      user: loggedUser !== null ? loggedUser : defaultUser,
+      id: uuidv4(), // Generate a new UUID for the next todo
+      value: "",
       status: false,
     });
-    // console.log(todos)
-
   };
+  
 
   // When the "x" is clicked, remove the item from the todos.
   const handleRemoveClick = (_event: React.MouseEvent, id: number) => {
