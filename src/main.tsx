@@ -4,9 +4,9 @@ import App from './pages/todopage.tsx'
 import './styles/todopage.css'
 import Login from './pages/Login.tsx'
 import Signup from './pages/Signup.tsx'
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './main.css' 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -1,6 +1,6 @@
 export default interface TodoItem {
     user:string;
-    id: number;
+    id: string;
     value: string;
     status: boolean;
   }
