@@ -16,19 +16,22 @@ A simple ToDo list application built with Vite, React, and TypeScript.
 
 ## Overview
 
-Provide a brief overview of your project, its purpose, and its main features.
+This is one of my solo-project to learn to use react with typescript and use of localstorage of browser.
 
 ## Features
 
 List the main features of your ToDo list application.
 
-- Feature 1
-- Feature 2
+- To-do-page : capable of adding, mark as done, and deleting completed tasks.
+- User Authentication
 - ...
 
 ## Getting Started
 
-Explain how to get a copy of the project up and running on a local machine.
+To clone this repository to your local machine, use the following command in your terminal or command prompt:
+
+```bash
+git clone https://github.com/krish4693/Todo-localhost.git
 
 ### Prerequisites
 
