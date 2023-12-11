@@ -40,10 +40,11 @@ List any software or tools that need to be installed before running the project.
 - Node.js and npm
 - ...
 
+-Use the following code to install the neccessary dependencies:
+
+      npm install
+
 ### Installation
-
-Provide step-by-step instructions on how to install project dependencies.
-
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/your-project.git
