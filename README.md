@@ -9,21 +9,23 @@ A simple ToDo list application built with Vite, React, and TypeScript.
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Development](#development)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
 
-This is one of my solo-project to learn to use react with typescript and use of localstorage of browser.
+This project is a solo endeavor aimed at learning to use React with TypeScript and making use of browser local storage for data persistence.
 
 ## Features
 
-List the main features of your ToDo list application.
+### To-Do Page
 
-- To-do-page : capable of adding, mark as done, and deleting completed tasks.
-- User Authentication
+- Capable of adding, marking as done, and deleting completed tasks.
+
+### User Authentication
+
+- [Add details about user authentication features]
 
 ## Getting Started
 
@@ -31,26 +33,3 @@ To clone this repository to your local machine, use the following command in you
 
 ```bash
 git clone https://github.com/krish4693/Todo-localhost.git
-```
-### Prerequisites
-
-- Node.js and npm
-
--Use the following code to install the neccessary dependencies:
-   ```bash
-      npm install
-   ```
-### Installation
-# Clone the repository
-```bash
-git clone https://github.com/yourusername/your-project.git
-```
-# Navigate to the project directory
-```bash
-cd your-project
-```
-
-# Install dependencies
-```bash
-npm install
-```
