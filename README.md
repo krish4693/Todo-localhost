@@ -24,7 +24,6 @@ List the main features of your ToDo list application.
 
 - To-do-page : capable of adding, mark as done, and deleting completed tasks.
 - User Authentication
-- ...
 
 ## Getting Started
 
@@ -35,17 +34,14 @@ git clone https://github.com/krish4693/Todo-localhost.git
 
 ### Prerequisites
 
-List any software or tools that need to be installed before running the project.
 
 - Node.js and npm
-- ...
 
 -Use the following code to install the neccessary dependencies:
-
+   
       npm install
 
 ### Installation
-```bash
 # Clone the repository
 git clone https://github.com/yourusername/your-project.git
 
