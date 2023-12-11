@@ -37,20 +37,20 @@ git clone https://github.com/krish4693/Todo-localhost.git
 - Node.js and npm
 
 -Use the following code to install the neccessary dependencies:
-   ```bash```
+   ```bash
       npm install
-   ``````
+   ```
 ### Installation
 # Clone the repository
 ```bash
 git clone https://github.com/yourusername/your-project.git
-``````
+```
 # Navigate to the project directory
-```bash```
+```bash
 cd your-project
-``````
+```
 
 # Install dependencies
 ```bash
 npm install
-``````
+```
