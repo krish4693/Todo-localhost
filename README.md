@@ -25,7 +25,7 @@ This project is a solo endeavor aimed at learning to use React with TypeScript a
 
 ### User Authentication
 
-- [Add details about user authentication features]
+- Login and signup page to enable user authentication(basic)
 
 ## Getting Started
 
