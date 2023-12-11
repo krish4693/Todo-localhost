@@ -1,6 +1,6 @@
-# Your Project Name
+# Simplitask
 
-A simple ToDo list application built with Vite, React, and TypeScript.
+A simple ToDo list application built wih Vite, React, and TypeScript.
 
 ## Table of Contents
 
