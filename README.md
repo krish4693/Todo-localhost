@@ -31,21 +31,26 @@ To clone this repository to your local machine, use the following command in you
 
 ```bash
 git clone https://github.com/krish4693/Todo-localhost.git
-```bash
+```
 ### Prerequisites
 
 - Node.js and npm
 
 -Use the following code to install the neccessary dependencies:
-   
+   ```bash```
       npm install
-
+   ``````
 ### Installation
 # Clone the repository
+```bash
 git clone https://github.com/yourusername/your-project.git
-
+``````
 # Navigate to the project directory
+```bash```
 cd your-project
+``````
 
 # Install dependencies
+```bash
 npm install
+``````
