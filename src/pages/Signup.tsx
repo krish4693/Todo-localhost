@@ -1,20 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import '../styles/Signup.css'
-import Login from './Login';
-import ToDoPage from './todopage'
 import { Link } from 'react-router-dom';
 import { FaUserTie } from 'react-icons/fa'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import {MdEmail} from 'react-icons/md'
 import { HiArrowRight } from 'react-icons/hi'
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
-
-interface LoginProps {
-  // Define your props here if needed
-}
 
 
 const SignupPage: React.FC = () => {

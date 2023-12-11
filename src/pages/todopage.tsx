@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import TodoItem from "../@types/TodoItem";
 import TodoItemProps from "../@types/TodoItem";
 import { useSavedState } from "../hooks/savedState";
-import LoginPage from "./Login";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {AiTwotoneDelete} from 'react-icons/ai'
 import { v4 as uuidv4 } from 'uuid';
 
@@ -30,7 +29,6 @@ const App: React.FC = () => {
   });
 
   // Filter for **only** the complete items, and fetch the length.
-  const itemsComplete = todos.filter((t: TodoItem) => t.status).length;
 
   // When the todo input changes, update the state.
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -59,14 +57,14 @@ const App: React.FC = () => {
   // When the "x" is clicked, remove the item from the todos.
   const handleRemoveClick = (_event: React.MouseEvent, id: number) => {
     console.log("Clicked remove for item with ID:", id);
-    setTodos(todos.filter((t: TodoItem) => t.id !== id));
+    setTodos(todos.filter((t: TodoItem) => t.id !== String(id)));
   };
 
   // Whenever a list item is clicked, mark the status complete/incomplete (true/false)
   const handleStatusClick = (_event: React.MouseEvent, id: number) => {
     console.log("Clicked status for item with ID:", id);
     let items = [...todos];
-    let itemIndex = todos.findIndex((t: TodoItem) => t.id === id);
+    let itemIndex = todos.findIndex((t: TodoItem) => t.id === String(id));
     let item: TodoItem = todos[itemIndex];
     item.status = !item.status;
 
@@ -125,9 +123,9 @@ const App: React.FC = () => {
               >
 
                 {/* Attached to handler to toggle item status. */}
-                <p onClick={(e) => handleStatusClick(e, todo.id)}>{todo.value}</p>
+                <p onClick={(e) => handleStatusClick(e, Number(todo.id))}>{todo.value}</p>
                 {/* Attached to handler to remove item. */}
-                <span onClick={(e) => handleRemoveClick(e, todo.id)}>
+                <span onClick={(e) => handleRemoveClick(e, Number(todo.id))}>
                   <AiTwotoneDelete/>
                 </span>
               </li>

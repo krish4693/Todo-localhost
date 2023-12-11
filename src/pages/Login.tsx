@@ -4,16 +4,11 @@ import { Link } from 'react-router-dom';
 import '../styles/Login.css';
 import { FaUserTie } from 'react-icons/fa'
 import { RiLockPasswordFill } from 'react-icons/ri'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HiArrowRight } from 'react-icons/hi'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
-
-interface LoginProps {
-  // Define your props here if needed
-}
-// const navigate=useNavigate()
 
 const LoginPage: React.FC = () => {
   const [formData, setFormData] = useState({
