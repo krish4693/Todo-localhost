@@ -1,5 +1,7 @@
 # Simplitask
 
+Live demo:
+
 A simple ToDo list application built wih Vite, React, and TypeScript.
 
 ## Table of Contents

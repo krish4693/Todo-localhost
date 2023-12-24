@@ -128,7 +128,7 @@ const App: React.FC = () => {
               >
 
                 {/* Attached to handler to toggle item status. */}
-                <p onClick={(e) => handleStatusClick(e, Number(todo.id))}>{todo.value}</p>
+                <p onClick={(e) => handleStatusClick(e, String(todo.id))}>{todo.value}</p>
                 {/* Attached to handler to remove item. */} 
                 <span onClick={(e) => handleRemoveClick(e, String(todo.id))}>
                   <AiTwotoneDelete/>
