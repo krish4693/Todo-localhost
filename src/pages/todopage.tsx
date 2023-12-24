@@ -54,14 +54,19 @@ const App: React.FC = () => {
   };
   
 
+
+
   // When the "x" is clicked, remove the item from the todos.
-  const handleRemoveClick = (_event: React.MouseEvent, id: number) => {
+  const handleRemoveClick = (_event: React.MouseEvent, id: String) => {
     console.log("Clicked remove for item with ID:", id);
     setTodos(todos.filter((t: TodoItem) => t.id !== String(id)));
   };
 
+
+
+
   // Whenever a list item is clicked, mark the status complete/incomplete (true/false)
-  const handleStatusClick = (_event: React.MouseEvent, id: number) => {
+  const handleStatusClick = (_event: React.MouseEvent, id: String) => {
     console.log("Clicked status for item with ID:", id);
     let items = [...todos];
     let itemIndex = todos.findIndex((t: TodoItem) => t.id === String(id));
@@ -124,8 +129,8 @@ const App: React.FC = () => {
 
                 {/* Attached to handler to toggle item status. */}
                 <p onClick={(e) => handleStatusClick(e, Number(todo.id))}>{todo.value}</p>
-                {/* Attached to handler to remove item. */}
-                <span onClick={(e) => handleRemoveClick(e, Number(todo.id))}>
+                {/* Attached to handler to remove item. */} 
+                <span onClick={(e) => handleRemoveClick(e, String(todo.id))}>
                   <AiTwotoneDelete/>
                 </span>
               </li>
